@@ -97,24 +97,27 @@ public:
 
 		// оператор перехода на следующий узел
 		BinSTreeIterator& operator++() override {
-			// Если текущий узел имеет правого потомка, идем вправо
-			if (curr->Right() != nullptr) {
-				curr = curr->Right();
+			if (curr != nullptr) {
 
-				// Идем влево до последнего левого потомка
-				while (curr->Left() != nullptr) {
-					path.push(curr);
-					curr = curr->Left();
+				// Если текущий узел имеет правого потомка, идем вправо
+				if (curr->Right() != nullptr) {
+					curr = curr->Right();
+
+					// Идем влево до последнего левого потомка
+					while (curr->Left() != nullptr) {
+						path.push(curr);
+						curr = curr->Left();
+					}
 				}
-			}
-			// Если текущий узел не имеет правого потомка, идем вверх по стеку
-			else if (!path.empty()) {
-				curr = path.top();
-				path.pop();
-			}
-			// Если стек пуст и нет правого потомка, достигнут конец дерева
-			else {
-				curr = nullptr;
+				// Если текущий узел не имеет правого потомка, идем вверх по стеку
+				else if (!path.empty()) {
+					curr = path.top();
+					path.pop();
+				}
+				// Если стек пуст и нет правого потомка, достигнут конец дерева
+				else {
+					curr = nullptr;
+				}
 			}
 
 			return *this;
