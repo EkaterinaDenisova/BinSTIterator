@@ -3,7 +3,9 @@
 // класс бинарного дерева поиска
 
 #include <iostream>
+#include "AbsIterator.h"
 #include "TreeNode.h"
+#include <stack> // дл€ итератора
 
 template <typename T>
 class BinSTree
@@ -51,6 +53,88 @@ public:
 	int ListSize() const;
 
 	TreeNode<T>* GetRoot();
+
+	// класс итератора дл€ BinSTree (симметричный обход, т.е. по возрастанию)
+	template<typename T>
+	class BinSTreeIterator : public AbsIterator<T> {
+	private:
+		TreeNode<T>* curr;  // “екущий узел
+		std::stack<TreeNode<T>*> path;  // —тек дл€ хранени€ пути к текущему узлу
+
+	public:
+		// конструктор с параметром (в качестве параметра передаЄтс€ корень дерева)
+		// curr присваиваетс€ самый левый узел (наименьший)
+		BinSTreeIterator(TreeNode<T>* x) {
+			TreeNode<T>* tmp = x;
+			while (tmp != nullptr) {
+				path.push(tmp);
+				tmp = tmp->Left();
+			}
+			if (!path.empty()) {
+				curr = path.top();
+				path.pop();
+			}
+			else {
+				curr = nullptr;
+			}
+			
+		}
+
+		// оператор сравнени€
+		bool operator==(const AbsIterator<T>& o) const override {
+			return curr == dynamic_cast<const BinSTreeIterator<T>&>(o).curr;
+		}
+
+		bool operator!=(const AbsIterator<T>& o) const override {
+			return !(curr == dynamic_cast<const BinSTreeIterator<T>&>(o).curr);
+		}
+
+		// оператор доступа к данным
+		T operator*() const override {
+			//возвращает данные текущего узла
+			return curr->Data();
+		}
+
+		// оператор перехода на следующий узел
+		BinSTreeIterator& operator++() override {
+			// ≈сли текущий узел имеет правого потомка, идем вправо
+			if (curr->Right() != nullptr) {
+				curr = curr->Right();
+
+				// »дем влево до последнего левого потомка
+				while (curr->Left() != nullptr) {
+					path.push(curr);
+					curr = curr->Left();
+				}
+			}
+			// ≈сли текущий узел не имеет правого потомка, идем вверх по стеку
+			else if (!path.empty()) {
+				curr = path.top();
+				path.pop();
+			}
+			// ≈сли стек пуст и нет правого потомка, достигнут конец дерева
+			else {
+				curr = nullptr;
+			}
+
+			return *this;
+		}
+
+		
+
+	};
+
+
+	BinSTreeIterator<T> begin() const {
+		return BinSTreeIterator<T>(root);
+	}
+
+	BinSTreeIterator<T> end() const {
+		return BinSTreeIterator<T>(nullptr);
+	}
+
+
+
 };
 
 // конструктор по умолчанию
