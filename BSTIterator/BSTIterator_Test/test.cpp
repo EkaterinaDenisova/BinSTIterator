@@ -2,12 +2,12 @@
 #include "../BSTIterator/TreeNode.h"
 #include "../BSTIterator/BinSTree.h"
 
-// author: Денисова Екатерина
-// тестирование класса итератора для бинарного дерева поиска
+// author: Р”РµРЅРёСЃРѕРІР° Р•РєР°С‚РµСЂРёРЅР°
+// С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ РєР»Р°СЃСЃР° РёС‚РµСЂР°С‚РѕСЂР° РґР»СЏ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР° РїРѕРёСЃРєР°
 
 TreeNode<int>* createTree1() {
 
-    // создаётся указатели на узлы дерева 
+    // СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»Рё РЅР° СѓР·Р»С‹ РґРµСЂРµРІР° 
     TreeNode<int>* leftleaf, * rightleaf, * root;
 
 
@@ -19,31 +19,31 @@ TreeNode<int>* createTree1() {
     //      /
     //     10
 
-    //создаётся указатель на лист дерева (указатели на левый и правый узлы nullptr)
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р»РёСЃС‚ РґРµСЂРµРІР° (СѓРєР°Р·Р°С‚РµР»Рё РЅР° Р»РµРІС‹Р№ Рё РїСЂР°РІС‹Р№ СѓР·Р»С‹ nullptr)
     leftleaf = new TreeNode<int>(10);
 
-    //создаётся узел только с левым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» С‚РѕР»СЊРєРѕ СЃ Р»РµРІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(12, leftleaf, nullptr);
 
-    // указатель leftleaf переносится на только что созданный узел
+    // СѓРєР°Р·Р°С‚РµР»СЊ leftleaf РїРµСЂРµРЅРѕСЃРёС‚СЃСЏ РЅР° С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃРѕР·РґР°РЅРЅС‹Р№ СѓР·РµР»
     leftleaf = root;
     rightleaf = new TreeNode<int>(24);
 
-    //создаётся узел с левым и правым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» СЃ Р»РµРІС‹Рј Рё РїСЂР°РІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(22, leftleaf, rightleaf);
     rightleaf = root;
     leftleaf = new TreeNode<int>(4);
 
-    //создаётся узел только с правым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» С‚РѕР»СЊРєРѕ СЃ РїСЂР°РІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(5, leftleaf, rightleaf);
 
     return root;
 }
 
-// вырожденное вправо
+// РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІРїСЂР°РІРѕ
 TreeNode<int>* createTree2() {
 
-    // создаётся указатели на узлы дерева 
+    // СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»Рё РЅР° СѓР·Р»С‹ РґРµСЂРµРІР° 
     TreeNode<int>* rightleaf, * root;
 
 
@@ -55,29 +55,29 @@ TreeNode<int>* createTree2() {
     //            \
     //             33
 
-    //создаётся указатель на лист дерева (указатели на левый и правый узлы nullptr)
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р»РёСЃС‚ РґРµСЂРµРІР° (СѓРєР°Р·Р°С‚РµР»Рё РЅР° Р»РµРІС‹Р№ Рё РїСЂР°РІС‹Р№ СѓР·Р»С‹ nullptr)
     rightleaf = new TreeNode<int>(33);
 
-    //создаётся узел только с правым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» С‚РѕР»СЊРєРѕ СЃ РїСЂР°РІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(30, nullptr, rightleaf);
 
-    // указатель rightleaf переносится на только что созданный узел
+    // СѓРєР°Р·Р°С‚РµР»СЊ rightleaf РїРµСЂРµРЅРѕСЃРёС‚СЃСЏ РЅР° С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃРѕР·РґР°РЅРЅС‹Р№ СѓР·РµР»
     rightleaf = root;
 
-    //создаётся узел с правым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» СЃ РїСЂР°РІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(19, nullptr, rightleaf);
     rightleaf = root;
 
-    //создаётся узел только с правым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» С‚РѕР»СЊРєРѕ СЃ РїСЂР°РІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(10, nullptr, rightleaf);
 
     return root;
 }
 
-// вырожденное влево
+// РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІР»РµРІРѕ
 TreeNode<int>* createTree3() {
 
-    // создаётся указатели на узлы дерева 
+    // СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»Рё РЅР° СѓР·Р»С‹ РґРµСЂРµРІР° 
     TreeNode<int>* leftleaf, * root;
 
 
@@ -89,26 +89,26 @@ TreeNode<int>* createTree3() {
 
 
 
-    //создаётся узел
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР»
     root = new TreeNode<int>(14);
 
-    // указатель rightleaf переносится на только что созданный узел
+    // СѓРєР°Р·Р°С‚РµР»СЊ rightleaf РїРµСЂРµРЅРѕСЃРёС‚СЃСЏ РЅР° С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃРѕР·РґР°РЅРЅС‹Р№ СѓР·РµР»
     leftleaf = root;
 
-    //создаётся узел с левым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» СЃ Р»РµРІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(54, leftleaf, nullptr);
     leftleaf = root;
 
-    //создаётся узел только с левым потомком
+    //СЃРѕР·РґР°С‘С‚СЃСЏ СѓР·РµР» С‚РѕР»СЊРєРѕ СЃ Р»РµРІС‹Рј РїРѕС‚РѕРјРєРѕРј
     root = new TreeNode<int>(60, leftleaf, nullptr);
 
     return root;
 }
 
-// законченное дерево
+// Р·Р°РєРѕРЅС‡РµРЅРЅРѕРµ РґРµСЂРµРІРѕ
 TreeNode<int>* createTree4() {
 
-    // создаётся указатели на узлы дерева 
+    // СЃРѕР·РґР°С‘С‚СЃСЏ СѓРєР°Р·Р°С‚РµР»Рё РЅР° СѓР·Р»С‹ РґРµСЂРµРІР° 
     TreeNode<int>* rightleaf, * leftleaf, * root;
 
 
@@ -141,10 +141,10 @@ TreeNode<int>* createTree4() {
     return root;
 }
 
-// тестирование метода begin (наименьший элемент дерева)
+// С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ РјРµС‚РѕРґР° begin (РЅР°РёРјРµРЅСЊС€РёР№ СЌР»РµРјРµРЅС‚ РґРµСЂРµРІР°)
 TEST(TestBSTIterator, TestBegin) {
 
-    // создаётся дерево
+    // СЃРѕР·РґР°С‘С‚СЃСЏ РґРµСЂРµРІРѕ
     //       5
     //      / \
     //     4   22
@@ -159,7 +159,7 @@ TEST(TestBSTIterator, TestBegin) {
     EXPECT_EQ(*it1, 4);
 
 
-    // вырожденное вправо
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІРїСЂР°РІРѕ
     //       10
     //        \
     //         19
@@ -173,7 +173,7 @@ TEST(TestBSTIterator, TestBegin) {
     BinSTree<int>::BinSTreeIterator<int> it2 = tr2.begin();
     EXPECT_EQ(*it2, 10);
 
-    // вырожденное влево
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІР»РµРІРѕ
     //       60
     //       /  
     //      54   
@@ -185,7 +185,7 @@ TEST(TestBSTIterator, TestBegin) {
     BinSTree<int>::BinSTreeIterator<int> it3 = tr3.begin();
     EXPECT_EQ(*it3, 14);
 
-    // завершённое дерево
+    // Р·Р°РІРµСЂС€С‘РЅРЅРѕРµ РґРµСЂРµРІРѕ
     //          8
     //       /    \
     //      4      10
@@ -199,14 +199,14 @@ TEST(TestBSTIterator, TestBegin) {
     BinSTree<int>::BinSTreeIterator<int> it4 = tr4.begin();
     EXPECT_EQ(*it4, 1);
 
-    // пустое дерево
+    // РїСѓСЃС‚РѕРµ РґРµСЂРµРІРѕ
     TreeNode<int>* root5 = nullptr;
     BinSTree<int> tr5(root5);
 
     BinSTree<int>::BinSTreeIterator<int> it5 = tr5.begin();
     EXPECT_EQ(it5, BinSTree<int>::BinSTreeIterator<int>(nullptr));
 
-    // дерево с одним узлом
+    // РґРµСЂРµРІРѕ СЃ РѕРґРЅРёРј СѓР·Р»РѕРј
     TreeNode<int>* root6 = new TreeNode<int>(2);
     BinSTree<int> tr6(root6);
 
@@ -214,10 +214,10 @@ TEST(TestBSTIterator, TestBegin) {
     EXPECT_EQ(*it6, 2);
 }
 
-// тестирование оператора * и ++
+// С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ РѕРїРµСЂР°С‚РѕСЂР° * Рё ++
 TEST(TestBSTIterator, TestData) {
 
-    // создаётся дерево
+    // СЃРѕР·РґР°С‘С‚СЃСЏ РґРµСЂРµРІРѕ
     //       5
     //      / \
     //     4   22
@@ -236,7 +236,7 @@ TEST(TestBSTIterator, TestData) {
     EXPECT_EQ(arr, arr1);
     arr.clear(); arr1.clear();
 
-    // вырожденное вправо
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІРїСЂР°РІРѕ
     //       10
     //        \
     //         19
@@ -255,7 +255,7 @@ TEST(TestBSTIterator, TestData) {
     EXPECT_EQ(arr, arr1);
     arr.clear(); arr1.clear();
 
-    // вырожденное влево
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІР»РµРІРѕ
     //       60
     //       /  
     //      54   
@@ -272,7 +272,7 @@ TEST(TestBSTIterator, TestData) {
     EXPECT_EQ(arr, arr1);
     arr.clear(); arr1.clear();
 
-    // завершённое дерево
+    // Р·Р°РІРµСЂС€С‘РЅРЅРѕРµ РґРµСЂРµРІРѕ
     //          8
     //       /    \
     //      4      10
@@ -291,7 +291,7 @@ TEST(TestBSTIterator, TestData) {
     EXPECT_EQ(arr, arr1);
     arr.clear(); arr1.clear();
 
-    // пустое дерево
+    // РїСѓСЃС‚РѕРµ РґРµСЂРµРІРѕ
     TreeNode<int>* root5 = nullptr;
     BinSTree<int> tr5(root5);
 
@@ -304,7 +304,7 @@ TEST(TestBSTIterator, TestData) {
     arr.clear(); arr1.clear();
     
 
-    // дерево с одним узлом
+    // РґРµСЂРµРІРѕ СЃ РѕРґРЅРёРј СѓР·Р»РѕРј
     TreeNode<int>* root6 = new TreeNode<int>(2);
     BinSTree<int> tr6(root6);
 
@@ -318,10 +318,10 @@ TEST(TestBSTIterator, TestData) {
 
 }
 
-// тестирование оператора == и !=
+// С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ РѕРїРµСЂР°С‚РѕСЂР° == Рё !=
 TEST(TestBSTIterator, TestEqual) {
 
-    // создаётся дерево
+    // СЃРѕР·РґР°С‘С‚СЃСЏ РґРµСЂРµРІРѕ
     //       5
     //      / \
     //     4   22
@@ -338,7 +338,7 @@ TEST(TestBSTIterator, TestEqual) {
     ++it1;
     EXPECT_TRUE(it1 != it2);
 
-    // вырожденное вправо
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІРїСЂР°РІРѕ
     //       10
     //        \
     //         19
@@ -355,7 +355,7 @@ TEST(TestBSTIterator, TestEqual) {
     ++it1;
     EXPECT_TRUE(it1 != it2);
 
-    // вырожденное влево
+    // РІС‹СЂРѕР¶РґРµРЅРЅРѕРµ РІР»РµРІРѕ
     //       60
     //       /  
     //      54   
@@ -370,7 +370,7 @@ TEST(TestBSTIterator, TestEqual) {
     ++it1;
     EXPECT_TRUE(it1 != it2);
 
-    // завершённое дерево
+    // Р·Р°РІРµСЂС€С‘РЅРЅРѕРµ РґРµСЂРµРІРѕ
     //          8
     //       /    \
     //      4      10
@@ -387,7 +387,7 @@ TEST(TestBSTIterator, TestEqual) {
     ++it1;
     EXPECT_TRUE(it1 != it2);
 
-    // пустое дерево
+    // РїСѓСЃС‚РѕРµ РґРµСЂРµРІРѕ
     TreeNode<int>* root5 = nullptr;
     BinSTree<int> tr5(root5);
 
@@ -395,7 +395,7 @@ TEST(TestBSTIterator, TestEqual) {
     it2 = tr5.begin();
     EXPECT_TRUE(it1 == it2);
   
-    // дерево с одним узлом
+    // РґРµСЂРµРІРѕ СЃ РѕРґРЅРёРј СѓР·Р»РѕРј
     TreeNode<int>* root6 = new TreeNode<int>(2);
     BinSTree<int> tr6(root6);
 
