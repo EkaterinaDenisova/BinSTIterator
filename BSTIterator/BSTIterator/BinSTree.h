@@ -1,12 +1,14 @@
 #pragma once
 // author: Денисова Екатерина
-// класс бинарного дерева поиска
+
 
 #include <iostream>
 #include "AbsIterator.h"
 #include "TreeNode.h"
 #include <stack> // для итератора
 
+
+// класс бинарного дерева поиска
 template <typename T>
 class BinSTree
 {
@@ -42,8 +44,11 @@ public:
 	// возвращает уровень, на котором находится искомый узел
 	// либо -1, если узла с таким значением в дереве нет
 	int Find(const T& item);
+	// вставка узла в дерево
 	void Insert(const T& item);
+	// удаление узла и дерева
 	void Delete(const T& item);
+	// очистить дерево
 	void ClearList();
 
 	// проверка, пустое ли дерево

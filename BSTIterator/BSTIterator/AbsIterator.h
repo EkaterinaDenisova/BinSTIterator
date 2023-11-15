@@ -5,6 +5,7 @@ template <typename T>
 // абстрактный класс итератора
 class AbsIterator
 {
+public:
     // оператор перехода на следующий элемент
     virtual AbsIterator<T>& operator++() = 0;
     //virtual void operator++(int) const {};
